@@ -79,8 +79,8 @@ const uniqueId = generateUniqueID()
 
   // fetch data from the server
 
-//  const response = await fetch('https://codexai-gh.onrender.com/', {
-  const response = await fetch('https://openai-server-pu79.onrender.com/', {
+  const response = await fetch('https://codexai-gh.onrender.com/', {
+  //const response = await fetch('https://openai-server-pu79.onrender.com/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
