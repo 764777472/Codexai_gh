@@ -55,7 +55,7 @@ app.post('/', async(req, res) => {
           size: "256x256"
         })
         res.status(200).send({
-            bot: response['data'][0]['url'];
+            bot: response['data'][0]['url']
         })
         
     } catch (error) {
