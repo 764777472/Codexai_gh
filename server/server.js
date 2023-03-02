@@ -49,11 +49,11 @@ app.post('/', async(req, res) => {
             bot: response.data.choices[0].text
         })
         */
-        const response = await openai.Image.create(
+        const response = await openai.Image.create({
           prompt: `${prompt}`,
           n: 1,
           size: "256x256"
-        )
+        })
         res.status(200).send({
             bot: response['data'][0]['url'];
         })
