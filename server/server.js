@@ -34,6 +34,7 @@ app.post('/', async(req, res) => {
             bot: response['data'][0]['url']
         })
         */
+        /*
         const response = await openai.createCompletion({
           model: "text-davinci-003",
           prompt: `${prompt}`,
@@ -44,9 +45,19 @@ app.post('/', async(req, res) => {
           presence_penalty: 0.6,
           stop: [" Human:", " AI:"],
         });
-
         res.status(200).send({
             bot: response.data.choices[0].text
+        })
+        */
+        const response = await openai.Image.create_edit(
+          image: "sunlit_lounge.png",
+          mask: "mask.png",
+          prompt: "A sunlit indoor lounge area with a pool containing a flamingo",
+          n: 1,
+          size: "1024x1024"
+        )
+        res.status(200).send({
+            bot: response['data'][0]['url'];
         })
         
     } catch (error) {
