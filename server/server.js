@@ -49,12 +49,10 @@ app.post('/', async(req, res) => {
             bot: response.data.choices[0].text
         })
         */
-        const response = await openai.Image.create_edit(
-          image: "sunlit_lounge.png",
-          mask: "mask.png",
-          prompt: "A sunlit indoor lounge area with a pool containing a flamingo",
+        const response = await openai.Image.create(
+          prompt: `${prompt}`,
           n: 1,
-          size: "1024x1024"
+          size: "256x256"
         )
         res.status(200).send({
             bot: response['data'][0]['url'];
