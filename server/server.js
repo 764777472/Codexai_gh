@@ -23,7 +23,6 @@ app.get('/', async (req, res) => {
 
 app.post('/', async(req, res) => {
     try {
-        console.log('----req',req)
         const prompt = req.body.prompt;
         const response = await openai.createCompletion({
           model: "text-davinci-003",
@@ -37,17 +36,6 @@ app.post('/', async(req, res) => {
         res.status(200).send({
             bot: response.data.choices[0].text
         })
-        /*
-        const response = await openai.Image.create({
-          prompt: `${prompt}`,
-          n: 1,
-          size: "256x256"
-        })
-        res.status(200).send({
-            bot: response['data'][0]['url']
-        })
-        */
-        
     } catch (error) {
         console.log(error);
         res.status(500).send({ error })
