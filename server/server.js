@@ -42,5 +42,20 @@ app.post('/', async(req, res) => {
         res.status(500).send({ error })
     }
 })
+app.post('/chat', async(req, res) => {
+    try {
+        const prompt = req.body.prompt;
+        const response = await openai.createChatCompletion({
+          model: "gpt-3.5-turbo",
+          messages: `${prompt}`
+        });
+        res.status(200).send({
+            bot: response.data.choices[0].message
+        })
+    } catch (error) {
+        console.log(error);
+        res.status(500).send({ error })
+    }
+})
 
 app.listen(5000, () => console.log('Server is running on port http://localhost:5000'));
