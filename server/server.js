@@ -20,7 +20,7 @@ app.get('/', async (req, res) => {
         message: 'Hello from CodeX',
     })
 })
-/*
+
 app.post('/', async(req, res) => {
     try {
         const prompt = req.body.prompt;
@@ -42,7 +42,8 @@ app.post('/', async(req, res) => {
         res.status(500).send({ error })
     }
 })
-*/
+
+/*
 app.post('/', async(req, res) => {
     try {
         const prompt = req.body.prompt;
@@ -58,5 +59,5 @@ app.post('/', async(req, res) => {
         res.status(500).send({ error })
     }
 })
-
+*/
 app.listen(5000, () => console.log('Server is running on port http://localhost:5000'));
