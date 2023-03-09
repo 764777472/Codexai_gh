@@ -32,7 +32,7 @@ app.post('/', async(req, res) => {
           top_p: 1,
           frequency_penalty: 0.4,
           presence_penalty: 0.6,
-          stop: ["$U_s:", "$B_s:"],
+          stop: [" Human:", " AI:"],
         });
         res.status(200).send({
             bot: response.data.choices[0].text
