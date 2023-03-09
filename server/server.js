@@ -20,7 +20,7 @@ app.get('/', async (req, res) => {
         message: 'Hello from CodeX',
     })
 })
-
+/*
 app.post('/', async(req, res) => {
     try {
         const prompt = req.body.prompt;
@@ -42,7 +42,8 @@ app.post('/', async(req, res) => {
         res.status(500).send({ error })
     }
 })
-app.post('/chat', async(req, res) => {
+*/
+app.post('/', async(req, res) => {
     try {
         const prompt = req.body.prompt;
         const response = await openai.createChatCompletion({
