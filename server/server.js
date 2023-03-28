@@ -17,7 +17,7 @@ app.use(express.json());
 
 app.get('/', async (req, res) => {
     res.status(200).send({
-        message: 'Hello from DialogueBot',
+        message: 'Hello from CodeX',
     })
 })
 
@@ -25,16 +25,17 @@ app.post('/', async(req, res) => {
     try {
         const prompt = req.body.prompt;
         const response = await openai.createCompletion({
-            model: "text-davinci-003",
-            prompt: `${prompt}`,
-            temperature: 0.9,
-            max_tokens: 3000,
-            top_p: 1,
-            frequency_penalty: 0.4,
-            presence_penalty: 0.6
+          model: "text-davinci-003",
+          prompt: `${prompt}`,
+          temperature: 0.9,
+          max_tokens: 3000,
+          top_p: 1,
+          frequency_penalty: 0.4,
+          presence_penalty: 0.6,
+          stop: [" Human:", " AI:"],
         });
         res.status(200).send({
-            bot: response.data.choices[0]
+            bot: response.data.choices[0].text
         })
     } catch (error) {
         console.log(error);
